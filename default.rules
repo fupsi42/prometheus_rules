@@ -1,7 +1,3 @@
-#
-# Ansible managed: alert.rules.j2 modified on 2021-05-13 18:56:24 by schmeltm on GPC
-#
-
 groups:
 - name: ansible managed alert rules
   rules:
