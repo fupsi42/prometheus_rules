@@ -1,0 +1,13 @@
+groups:
+- name: bird rule files
+  rules:
+  - alert: prefix import
+    expr: 'bird_protocol_prefix_import_count{ip_version="6", proto="BGP"} == 0'
+    for: 2m
+    labels:
+      service: Routing
+      customer: $labels.name
+      severity: warning
+    annotations:
+      summary: Prefix Import on {{ $labels.instance }}
+      description: "Prefix Import from {{ $labels.name }}\n is {{ $value }}"
